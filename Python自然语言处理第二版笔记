@@ -1,4 +1,10 @@
 # Python自然语言处理第二版笔记
 ## 996科研之外
 
-打工人先占个坑。
+20210228安装nltk
+1. nltk下载语料时发生11004 getaddrinfo failed错误。
+https://github.com/nltk/nltk_data手动下载慢得一批，于是通过更改hosts。
+在 C:\Windows\System32\drivers\etc 路径下找到 hosts 文件
+打开查询IP地址的网址：https://www.ipaddress.com/，输入raw.githubusercontent.com得到IP地址
+在最后添加 199.232.68.133 raw.githubusercontent.com IP地址，并保存
+重新运行 nltk.download()
