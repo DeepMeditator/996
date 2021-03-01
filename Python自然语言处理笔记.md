@@ -1,5 +1,4 @@
 # Python自然语言处理第二版笔记
-## 996科研之外
 
 ## 20210228安装nltk
 1. nltk下载语料时发生11004 getaddrinfo failed错误。不知道为啥自己好了。之后修改nltk_data路径
