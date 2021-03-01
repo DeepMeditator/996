@@ -1,1 +1,20 @@
+# Python自然语言处理第二版 读书笔记
+
+## 第一章
+
+```Python
+list(bigarms([需要处理的string list])) 寻找双联词的bi-grams函数
+# 其他的属性
+w for w in text if w.endswith('str')
+# 还有w.istitle(), w.isdigit()
+w for w in text if 'str' in w
+# 也可以使用 if not/and/or
+
+# 词语计数: 非重复\忽略大小写\忽略非字母的标点符号和数字
+len(set(word.lower() for word in text1 if word.isalpha()))
+
+# 课后作业
+w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点等
+```
+
 
