@@ -6,14 +6,13 @@
 from nltk import data
 data.path.append(r"F:\PycharmProjects\NLP\NLP_book") 
 ```
-https://github.com/nltk/nltk_data手动下载慢得一批，于是通过更改hosts。
+https://github.com/nltk/nltk_data 手动下载慢得一批，于是通过更改hosts。
 在 C:\Windows\System32\drivers\etc 路径下找到 hosts 文件
-打开查询IP地址的网址：https://www.ipaddress.com/，输入raw.githubusercontent.com得到IP地址
+打开查询IP地址的网址：https://www.ipaddress.com/, 输入raw.githubusercontent.com得到IP地址
 在最后添加 199.232.68.133 raw.githubusercontent.com IP地址，并保存
 重新运行 nltk.download()
 
 2. 接下来是语言计算的相关内容，包括词语出现的concordance，similar和common_similar词语，以及统计词频
-# Python自然语言处理第二版 读书笔记
 
 ## 第一章
 
