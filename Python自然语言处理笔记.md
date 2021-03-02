@@ -35,7 +35,7 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 ---
 
 ## 非原创内容整理
-<u>常用概念</u>: 
+### <u>常用概念</u>: 
 
 词级别: 分词(Seg), 词性标注(POS), 命名实体识别(NER), 未登录词识别, 词向量(word2vec), 词义消歧
 
@@ -43,7 +43,7 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 
 篇章级别: 信息抽取, 本体提取, 事件抽取, 主题提取, 文档聚类, 舆情分析, 篇章理解, 自动文摘
 
-<u>工具与语料库</u>:
+### <u>工具与语料库</u>:
 
 中科院计算所NLPIR http://ictclas.nlpir.org/nlpir/ (收费?)
 
@@ -75,7 +75,7 @@ IKAnalyzer https://github.com/wks/ik-analyzer
 
 https://github.com/ysc/cws_evaluation 曾对多款分词器速度和效果进行过对比，可供参考。
 
-<u>公开的分词测试数据集</u>: 
+### <u>公开的分词测试数据集</u>: 
 
 SIGHAN Bakeoff 2005 MSR,560KB  http://sighan.cs.uchicago.edu/bakeoff2005/
 
@@ -83,7 +83,7 @@ SIGHAN Bakeoff 2005 PKU, 510KB  http://sighan.cs.uchicago.edu/bakeoff2005/
 
 人民日报 2014, 65MB  https://pan.baidu.com/s/1hq3KKXe
 
-<u>Python NLP的八个工具</u>: 
+### <u>Python NLP的八个工具</u>: 
 
 NLTK: NLTK是使用Python处理语言数据的领先平台。它为像WordNet这样的词汇资源提供了简便易用的界面。它还具有为文本分类(classification)、文本标记(tokenization)、词干提取(stemming)、词性标记(tagging)、语义分析(parsing)和语义推理(semantic reasoning)准备的文本处理库。
 
