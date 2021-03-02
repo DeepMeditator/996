@@ -33,8 +33,8 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 
 
 
-### 非原创内容整理
-
+## 非原创内容整理
+```
 <u>常用概念</u>: 
 
 词级别: 分词(Seg), 词性标注(POS), 命名实体识别(NER), 未登录词识别, 词向量(word2vec), 词义消歧
@@ -42,7 +42,8 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 句子级别: 情感分析, 关系提取, 意图识别, 依存句法分析(paser), 角色标注, 浅层语义分析, 指代消解
 
 篇章级别: 信息抽取, 本体提取, 事件抽取, 主题提取, 文档聚类, 舆情分析, 篇章理解, 自动文摘
-
+```
+```
 <u>工具与语料库</u>:
 
 中科院计算所NLPIR http://ictclas.nlpir.org/nlpir/ (收费?)
@@ -74,6 +75,7 @@ ZPar https://github.com/frcchang/zpar/releases 包括分词、词性标注和Par
 IKAnalyzer https://github.com/wks/ik-analyzer
 
 https://github.com/ysc/cws_evaluation 曾对多款分词器速度和效果进行过对比，可供参考。
+```
 
 <u>公开的分词测试数据集</u>: 
 
