@@ -53,12 +53,12 @@ Text.collocations(num=n, window_size=m)  # Text中n个(?)m维固定搭配
 ### 4. nltk.corpus.reader
 
 ```python
-from nltk.corpus import gutenberg        #古腾堡语料库
-from nltk.corpus import webtext          #网络语料库
-from nltk.corpus import nps_chat         #聊天文本
-from nltk.corpus import brown            #布朗语料库
-from nltk.corpus import reuters          #路透社语料库
-from nltk.corpus import inaugural        #就职演说语料库
+from nltk.corpus import gutenberg  # 英文电子书语料库
+from nltk.corpus import webtext  # 网络语料库
+from nltk.corpus import nps_chat  # 聊天文本
+from nltk.corpus import brown  # 布朗多种文体语料库
+from nltk.corpus import reuters  # 路透社语料库
+from nltk.corpus import inaugural  # 总统就职演说语料库
 
 gutenberg.fileids()  # 语料中包含的文件名(file_id)
 # ['austen-emma.txt', 'austen-persuasion.txt', 'austen-sense.txt'...]
