@@ -48,7 +48,7 @@ Lopez-Lira, A. (2020). Risk factors that matter: Textual analysis of risk disclo
 
 Cohen, Malloy and Nguyen (2020) 发现财报中措辞变动背后的原因通常是以下几种：more negative sentiment、higher uncertainty、more litigiousness 以及 CEO/CFO changes。这些原因往往意味着公司的运营面临更高的风险和不确定性。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/MQwkyU5EcvZZlDRBCCPueNjV495U6wdjGOMpSbribiadLwBtDjBUEFWhic8VRg1FTib4N8ZmUHTHDATgd43hPQgia8g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+<img src="https://mmbiz.qpic.cn/mmbiz_png/MQwkyU5EcvZZlDRBCCPueNjV495U6wdjGOMpSbribiadLwBtDjBUEFWhic8VRg1FTib4N8ZmUHTHDATgd43hPQgia8g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片" style="zoom:50%;" />
 
 除此之外，该文更进一步揭示了财报中的哪些 sections 发生的措辞变化最为关键，为后续进一步的深入研究奠定了很好的基础。其中一个值得多唠叨两句的 section 是美股年报中的 Item 1A：Risk Factors。
 
