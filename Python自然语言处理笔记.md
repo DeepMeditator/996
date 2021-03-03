@@ -1,7 +1,7 @@
 # Python自然语言处理第二版笔记
 
-## 20210228安装nltk
-1. nltk下载语料时发生11004 getaddrinfo failed错误。不知道为啥自己好了。之后修改nltk_data路径
+## 安装nltk
+nltk下载语料时发生11004 getaddrinfo failed错误。后来自己好了。之后修改nltk_data路径
 ```Python
 from nltk import data
 data.path.append(r"F:\PycharmProjects\NLP\NLP_book") 
@@ -12,26 +12,140 @@ https://github.com/nltk/nltk_data 手动下载慢得一批，于是通过更改h
 在最后添加 199.232.68.133 raw.githubusercontent.com IP地址，并保存
 重新运行 nltk.download()
 
-2. 接下来是语言计算的相关内容，包括词语出现的concordance，similar和common_similar词语，以及统计词频
-
 ## 第一章
 
 ```Python
-list(bigarms([需要处理的string list])) 寻找双联词的bi-grams函数
-# 其他的属性
-w for w in text if w.endswith('str')
-# 还有w.istitle(), w.isdigit()
-w for w in text if 'str' in w
-# 也可以使用 if not/and/or
+w for w in text if w.endswith('str')  # 还有w.istitle(), w.isdigit()
+w for w in text if 'str' in w  # 也可以使用 if not/and/or
 
 # 词语计数: 非重复\忽略大小写\忽略非字母的标点符号和数字
 len(set(word.lower() for word in text1 if word.isalpha()))
-
-# 课后作业
-w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点等
+# w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点等
 ```
 
+### 1. nltk.text.Text
 
+```python
+Text.concordance(word)  # 返回word的上下文(高频搭配)
+Text.similar(word)  # 返回与word具有相似上下文的单词
+Text.common_contexts([word1, word2, ...])  # 返回word1, word2...上下文的交集
+Text.dispersion_plot([word1, word2, ...])  # 画图表示语料中word1, word2...出现的位置(语料的第几个词)
+```
+
+### 2. nltk.probability.FreqDist
+
+```python
+fdist=FreqDist(samples)  # 生成samples的频率分布（samples可以是nltk.text.Text, 空格分割的字符串, 列表或者其他）
+fdist[word]  # 返回word在语料中出现的次数
+fdist.freq(word)  # 返回word在样本中出现的频率百分比
+fdist.plot()  # 绘制每个word的频率分布图
+fdist.plot(cumulative=True)  # 绘制每个word的频率分布累积图
+```
+
+### 3. nltk.util.bigrams
+
+```python
+list(bigrams(["more", "is", "said", "than", "done"]))  # 这些词中的2维固定搭配
+# output [('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
+Text.collocations(num=n, window_size=m)  # Text中n个(?)m维固定搭配
+```
+
+### 4. nltk.corpus.reader
+
+```python
+'''
+示例:
+from nltk.corpus import gutenberg        #古腾堡语料库
+from nltk.corpus import webtext          #网络语料库
+from nltk.corpus import nps_chat         #聊天文本
+from nltk.corpus import brown            #布朗语料库
+from nltk.corpus import reuters          #路透社语料库
+from nltk.corpus import inaugural        #就职演说语料库
+'''
+gutenberg.fileids()  # 语料中包含的文件名(file_id)
+# ['austen-emma.txt', 'austen-persuasion.txt', 'austen-sense.txt'...]
+brown.categories()  # 语料中的文体
+# ['editorial', 'fiction', 'romance', 'science_fiction'...]
+webtext.raw()  # 逐字母输出文件的内容, 包括空格
+brown.words()  # 返回包含语料中的所有词的列表
+gutenberg.words(["austen-emma.txt"])  # 返回austen-emma.txt中所有词的列表
+brown.words(categories="news")  # 返回categories=news的所有word的列表
+brown.sents()  # 返回语料中所有句子组成的列表, 也有words的剩下两种方法
+
+# 例: 调用gutenberg语料库的语句, 并查看语料基本情况
+from nltk.corpus import gutenberg
+emma = gutenberg.words('austen-emma.txt')
+# 统计平均词长, 平均句长, 每词出现的平均次数, 包括空格
+for fileid in gutenberg.fileids():
+    num_chars = len(gutenberg.raw(fileid))
+    num_words = len(gutenberg.words(fileid))
+    num_sents = len(gutenberg.sents(fileid))
+    num_vocab = len(set(w.lower() for w in gutenberg.words(fileid)))
+    print(round(num_chars/num_words), round(num_words/num_sents), round(num_words/num_vocab), fileid)  
+```
+
+### 5. nltk.probability.ConditionalFreqDist 条件频率分布
+
+```Python
+cfd=ConditionalFreqDist(pairs)  # 创建cdf
+cfd.conditions()  # 返回字母序的分类tag
+cfd[condition]  # 返回指定condition的频次分布(FreqDist)
+cfd[codition][sample]  # 指定cond下指定内容sample的频次
+
+
+# 例: brown语料库中news和romance两类文体中每个词(包含标点)的词频统计
+from nltk.corpus import brown
+cfd = nltk.ConditionalFreqDist(
+    (genre, word)  # conditionalfreqdist以一个配对的列表作为输入
+    for genre in brown.categories()
+    for word in brown.words(categories=genre))
+
+cfd = nltk.ConditionalFreqDist(genre_word)
+cfd
+# Output: <ConditionalFreqDist with 2 conditions>
+cfd.conditions()
+# Output: ['romance', 'news']
+cfd["news"]
+# Output: FreqDist({'the': 5580, ',': 5188, '.': 4030, 'of': 2849, 'and': 2146, 'to': 2116, 'a': 1993, 'in': 1893, 'for': 943, 'The': 806, ...})
+cfd["romance"]
+# Output: FreqDist({',': 3899, '.': 3736, 'the': 2758, 'and': 1776, 'to': 1502, 'a': 1335, 'of': 1186, '``': 1045, "''": 1044, 'was': 993, ...})
+cfd["romance"]["love"]
+# Output: 32
+
+
+cfd.tabulate(samples, conditions)  # 表格
+cfd.plot(samples, conditions)  # 绘图
+
+# 一坨例子
+from nltk.corpus import udhr
+languages = ["Chickasaw", "English", "German_Deutsch"]
+cfd = nltk.ConditionalFreqDist(
+    (lang, len(word))
+    for lang in languages
+    for word in udhr.words(lang+"-Latin1"))
+
+cfd.tabulate()
+'''Output:
+				1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 2  23
+     Chickasaw 411 99 41 68 91 89 77 70 49 33 16 28 45 10 6 4 5 3 2 1 1 1
+       English 185 340 358 114 169 117 157 118 80 63 50 12 11 6 1 0 0 0 0 0 0 0
+German_Deutsch 171 92 351 103 177 119 97 103 62 58 53 32 27 29 15 14 3 7 5 2 1 0
+'''
+cfd.tabulate(conditions=["English", "German_Deutsch"], samples=range(10), cumulative=True)
+'''Output:
+                 0    1    2    3    4    5    6    7    8    9
+       English    0  185  525  883  997 1166 1283 1440 1558 1638
+German_Deutsch    0  171  263  614  717  894 1013 1110 1213 1275
+'''
+```
+
+```python
+# 各种词汇列表
+from nltk.corpus import words  # 236736个英语词汇
+from nltk.corpus import stopwords  # stopwords表
+from nltk.corpus import names  # 英语姓名
+from nltk.corpus import swadesh  # 多语言单词对照词汇
+```
 ---
 
 ## 非原创内容整理
