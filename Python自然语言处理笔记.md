@@ -62,8 +62,10 @@ from nltk.corpus import inaugural  # 总统就职演说语料库
 
 gutenberg.fileids()  # 语料中包含的文件名(file_id)
 # ['austen-emma.txt', 'austen-persuasion.txt', 'austen-sense.txt'...]
+
 brown.categories()  # 语料中的文体
 # ['editorial', 'fiction', 'romance', 'science_fiction'...]
+
 webtext.raw()  # 逐字母输出文件的内容, 包括空格
 brown.words()  # 返回包含语料中的所有词的列表
 gutenberg.words(["austen-emma.txt"])  # 返回austen-emma.txt中所有词的列表
@@ -99,14 +101,19 @@ cfd = nltk.ConditionalFreqDist(
     for word in brown.words(categories=genre))
 
 cfd = nltk.ConditionalFreqDist(genre_word)
+
 cfd
 # Output: <ConditionalFreqDist with 2 conditions>
+
 cfd.conditions()
 # Output: ['romance', 'news']
+
 cfd["news"]
 # Output: FreqDist({'the': 5580, ',': 5188, '.': 4030, 'of': 2849, 'and': 2146, 'to': 2116, 'a': 1993, 'in': 1893, 'for': 943, 'The': 806, ...})
+
 cfd["romance"]
 # Output: FreqDist({',': 3899, '.': 3736, 'the': 2758, 'and': 1776, 'to': 1502, 'a': 1335, 'of': 1186, '``': 1045, "''": 1044, 'was': 993, ...})
+
 cfd["romance"]["love"]
 # Output: 32
 
@@ -123,14 +130,17 @@ cfd = nltk.ConditionalFreqDist(
     for word in udhr.words(lang+"-Latin1"))
 
 cfd.tabulate()
-'''Output:
+'''
+Output:
 				1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 2  23
      Chickasaw 411 99 41 68 91 89 77 70 49 33 16 28 45 10 6 4 5 3 2 1 1 1
        English 185 340 358 114 169 117 157 118 80 63 50 12 11 6 1 0 0 0 0 0 0 0
 German_Deutsch 171 92 351 103 177 119 97 103 62 58 53 32 27 29 15 14 3 7 5 2 1 0
 '''
+
 cfd.tabulate(conditions=["English", "German_Deutsch"], samples=range(10), cumulative=True)
-'''Output:
+'''
+Output:
                  0    1    2    3    4    5    6    7    8    9
        English    0  185  525  883  997 1166 1283 1440 1558 1638
 German_Deutsch    0  171  263  614  717  894 1013 1110 1213 1275
