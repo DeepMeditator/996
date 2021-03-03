@@ -35,6 +35,28 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 ---
 
 ## 非原创内容整理
+
+## 顶刊上的另类数据与股票收益研究-川总写量化
+
+Cohen, L., C. Malloy, and Q. Nguyen (2020). Lazy prices. ***Journal of Finance*** 75(3), 1371 – 1415.
+
+Lopez-Lira, A. (2020). Risk factors that matter: Textual analysis of risk disclosures for the cross-section of returns. Available at: https://ssrn.com/abstract=3313663.
+
+随着机器学习算法的普及，对文本数据的研究早已成为了学术界的“必争之地”。近年来，通过分析上市公司财报中的文本信息来研究股票收益率的研究也屡见不鲜，其中最有代表性的一篇当属发表在 JF 上的 Lazy Prices（Cohen, Malloy and Nguyen (2020)）。
+
+该文分析了美股上市公司季报和年报中的文本措辞变化是否和股票收益率有关。正如其标题揭示的那样，该文发现改动越少的公司未来的预期收益越高。通过做多改动少的公司、做空改动多的公司，该投资组合可以获得超过 20% 的年化超额收益。这篇文章的精彩之处在于对背后机制的讨论。
+
+Cohen, Malloy and Nguyen (2020) 发现财报中措辞变动背后的原因通常是以下几种：more negative sentiment、higher uncertainty、more litigiousness 以及 CEO/CFO changes。这些原因往往意味着公司的运营面临更高的风险和不确定性。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/MQwkyU5EcvZZlDRBCCPueNjV495U6wdjGOMpSbribiadLwBtDjBUEFWhic8VRg1FTib4N8ZmUHTHDATgd43hPQgia8g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+除此之外，该文更进一步揭示了财报中的哪些 sections 发生的措辞变化最为关键，为后续进一步的深入研究奠定了很好的基础。其中一个值得多唠叨两句的 section 是美股年报中的 Item 1A：Risk Factors。
+
+之所以单提它，是因为它让我想起了另一篇利用 Natural Language Processing 研究财报的文章，而该文研究的对象恰好就是年报中的 Risk Factors 一节（Lopez-Lira (2020)）。顺便一提，Lopez-Lira (2020) 尚未被发表，还是一篇 working paper。
+
+Lopez-Lira (2020) 使用 Latent Dirichlet Allocation（LDA）从 Risk Factors 一节提取出 25 个 risk topics。通过进一步分析发现其中有一些可以代表不同公司面临的系统性风险，且这些系统性风险因子（risk topics）中有一些是被定价的；基于这些因子构造的多因子模型的定价能力不亚于传统的 Fama-French 三/五因子模型。感兴趣的小伙伴不妨找来一读。
+
+---
 ### <u>常用概念</u>: 
 
 词级别: 分词(Seg), 词性标注(POS), 命名实体识别(NER), 未登录词识别, 词向量(word2vec), 词义消歧
