@@ -36,7 +36,7 @@ w.isupper()和not w.islower()的区别在于not lower还包括了数字/标点�
 
 ## 非原创内容整理
 
-## 顶刊上的另类数据与股票收益研究-川总写量化
+### 顶刊上的另类数据与股票收益研究-川总写量化
 
 Cohen, L., C. Malloy, and Q. Nguyen (2020). Lazy prices. ***Journal of Finance*** 75(3), 1371 – 1415.
 
